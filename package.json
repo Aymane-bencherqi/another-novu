@@ -211,6 +211,9 @@
     "pnpm": "^9.11.0"
   },
   "dependencies": {
+    "exceljs": "^4.4.0",
+    "node-cron": "^4.0.6",
+    "pdfkit": "^0.17.1",
     "tslib": "^2.4.0"
   },
   "pnpm": {

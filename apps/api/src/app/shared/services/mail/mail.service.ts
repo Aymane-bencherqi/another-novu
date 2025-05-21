@@ -15,6 +15,12 @@ export interface ISendMail {
   params?: {
     [key: string]: string | any[] | any; // eslint-disable-line @typescript-eslint/no-explicit-any
   };
+  attachments?: Array<{
+    content: string; // base64
+    filename: string;
+    type?: string;
+    disposition?: string;
+  }>;
 }
 
 export class MailService {
@@ -38,6 +44,7 @@ export class MailService {
         email: mail.from.email,
       },
       templateId: undefined,
+      attachments: mail.attachments,
     };
 
     if (mail.templateId) {

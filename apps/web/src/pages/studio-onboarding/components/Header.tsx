@@ -17,7 +17,7 @@ export const Header = ({ activeStepIndex = 0 }: { activeStepIndex?: number }) =>
         paddingBottom: '375',
       })}
     >
-      <div className={css({ padding: '100', width: '100%', height: '375' })}>
+      <div className={css({ padding: '100', width: 'full', height: '375' })}>
         <img
           // TODO: these assets are not the same dimensions!
           src={colorScheme === 'dark' ? COMPANY_LOGO_TEXT_PATH : COMPANY_LOGO_TEXT_PATH_DARK_TEXT}
@@ -58,7 +58,7 @@ export const Header = ({ activeStepIndex = 0 }: { activeStepIndex?: number }) =>
               }),
               stepCompletedIcon: css({
                 backgroundColor: 'typography.text.feedback.success',
-                borderRadius: '200',
+                borderRadius: 'full',
               }),
             }}
             progressIcon={({ step }) => <>{step + 1}</>}

@@ -116,7 +116,7 @@ export const StudioOnboardingPreview = () => {
       <div
         className={css({
           backgroundSize: '[16px 16px]',
-          minHeight: 'calc(100dvh - 4rem)',
+          minHeight: 'full',
           bg: 'surface.page',
         })}
       >
@@ -130,8 +130,7 @@ export const StudioOnboardingPreview = () => {
           <PageContainer
             className={css({
               width: 'full',
-              // TODO: create and use token
-              maxWidth: '1300px',
+              maxWidth: 'full',
             })}
           >
             <Title variant="page">Preview your workflow</Title>

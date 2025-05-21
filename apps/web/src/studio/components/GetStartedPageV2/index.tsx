@@ -51,7 +51,7 @@ const BadgeButton = ({
           borderRadius: 's',
           cursor: 'pointer',
           lineHeight: 'sm',
-          fontWeight: 600,
+          fontWeight: 'strong',
         }),
         className
       )}
@@ -113,14 +113,14 @@ export const GetStartedPageV2 = ({ location }: { location: 'onboarding' | 'get-s
   }, []);
 
   return (
-    <PageContainer className={css({ h: '100vh' })}>
+    <PageContainer className={css({ h: 'full' })}>
       <VStack
         className={css({
           justifyContent: 'center',
-          width: '100%',
+          width: 'full',
         })}
       >
-        <div className={css({ width: '960px' })}>
+        <div className={css({ width: 'full' })}>
           <Title
             className={css({
               marginBottom: '250',
@@ -131,18 +131,18 @@ export const GetStartedPageV2 = ({ location }: { location: 'onboarding' | 'get-s
           </Title>
           <HStack
             className={css({
-              marginBottom: '60px',
+              marginBottom: '100',
               flexWrap: 'wrap',
             })}
           >
             <VStack
               className={css({
-                width: '100%',
+                width: 'full',
                 alignItems: 'center',
               })}
               gap="50"
             >
-              <div className={css({ width: '600px' })}>
+              <div className={css({ width: 'full' })}>
                 <HStack
                   className={css({
                     justifyContent: 'space-between',
@@ -168,13 +168,13 @@ export const GetStartedPageV2 = ({ location }: { location: 'onboarding' | 'get-s
                 </HStack>
                 <div
                   className={css({
-                    width: '100%',
+                    width: 'full',
                     background: 'var(--mantine-color-gradient-outline)',
                     backgroundClip: 'padding-box',
                     border: 'none !important',
-                    padding: '1px',
+                    padding: '100',
                     borderRadius: '100',
-                    boxShadow: '!important dark',
+                    boxShadow: 'dark',
                   })}
                   onDoubleClick={() => {
                     track('Command copied - [Get Started - V2]');
@@ -183,7 +183,7 @@ export const GetStartedPageV2 = ({ location }: { location: 'onboarding' | 'get-s
                   <CodeSnippet
                     command="npx novu@latest dev"
                     className={css({
-                      width: '100%',
+                      width: 'full',
                       '& input': {
                         margin: '0 !important',
                         color: 'typography.text.main !important',
@@ -228,12 +228,12 @@ export const GetStartedPageV2 = ({ location }: { location: 'onboarding' | 'get-s
             className={css({
               marginBottom: '375',
               justifyContent: 'space-between',
-              width: '100%',
+              width: 'full',
               flexWrap: 'wrap',
               alignItems: 'flex-start',
             })}
           >
-            <VStack gap="0" className={css({ width: '17.5rem', alignItems: 'flex-start' })}>
+            <VStack gap="0" className={css({ width: '250', alignItems: 'flex-start' })}>
               <HStack gap="50">
                 <IconLaptopMac />
                 <Title
@@ -249,7 +249,7 @@ export const GetStartedPageV2 = ({ location }: { location: 'onboarding' | 'get-s
               <Text
                 className={css({
                   color: 'typography.text.secondary',
-                  marginBottom: location === 'onboarding' ? '24px' : '8px',
+                  marginBottom: location === 'onboarding' ? '100' : '25',
                 })}
               >
                 Code your notification workflows and preview them locally
@@ -279,7 +279,7 @@ export const GetStartedPageV2 = ({ location }: { location: 'onboarding' | 'get-s
               )}
               <Ide />
             </VStack>
-            <VStack gap="0" className={css({ width: '17.5rem', alignItems: 'flex-start' })}>
+            <VStack gap="0" className={css({ width: '250', alignItems: 'flex-start' })}>
               <HStack gap="50">
                 <IconEditNote />
                 <Title
@@ -295,7 +295,7 @@ export const GetStartedPageV2 = ({ location }: { location: 'onboarding' | 'get-s
               <Text
                 className={css({
                   color: 'typography.text.secondary',
-                  marginBottom: location === 'onboarding' ? '24px' : '8px',
+                  marginBottom: location === 'onboarding' ? '100' : '25',
                 })}
               >
                 Provide your team with no-code UI controls to modify notification content and behavior
@@ -325,7 +325,7 @@ export const GetStartedPageV2 = ({ location }: { location: 'onboarding' | 'get-s
               )}
               <Development />
             </VStack>
-            <VStack gap="0" className={css({ width: '17.5rem', alignItems: 'flex-start' })}>
+            <VStack gap="0" className={css({ width: '250', alignItems: 'flex-start' })}>
               <HStack gap="50">
                 <IconOutlineRocketLaunch />
                 <Title
@@ -341,7 +341,7 @@ export const GetStartedPageV2 = ({ location }: { location: 'onboarding' | 'get-s
               <Text
                 className={css({
                   color: 'typography.text.secondary',
-                  marginBottom: location === 'onboarding' ? '24px' : '8px',
+                  marginBottom: location === 'onboarding' ? '100' : '25',
                 })}
               >
                 Use your CI/CD pipeline to ship your notifications to production

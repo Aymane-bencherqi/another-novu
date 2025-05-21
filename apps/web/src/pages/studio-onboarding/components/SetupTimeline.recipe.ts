@@ -22,7 +22,7 @@ export const timelineRecipe = sva({
       margin: '0 !important',
       fontWeight: 'strong !important',
       color: 'typography.text.main !important',
-      lineHeight: '1.5rem !important',
+      lineHeight: '200 !important',
     },
     itemBullet: {
       fontWeight: 'strong',
@@ -35,14 +35,14 @@ export const timelineRecipe = sva({
       },
     },
     itemBody: {
-      lineHeight: '1.25rem',
+      lineHeight: '150',
       color: 'typography.text.secondary',
     },
 
     itemContent: {
       display: 'block',
-      opacity: 1,
-      maxHeight: '400px',
+      opacity: 'full',
+      maxHeight: '400',
     },
   },
 });

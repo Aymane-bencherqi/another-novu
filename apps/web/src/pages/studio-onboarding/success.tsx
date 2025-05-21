@@ -121,7 +121,7 @@ export const StudioOnboardingSuccess = () => {
                 />
                 <VStack
                   className={css({
-                    flex: 1,
+                    flex: '1 1 0%',
                     alignItems: 'start',
                   })}
                   gap="25"

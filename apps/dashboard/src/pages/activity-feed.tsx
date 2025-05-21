@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'motion/react';
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { ActivityError } from '@/components/activity/activity-error';
 import { ActivityFilters } from '@/components/activity/activity-filters';
@@ -19,6 +19,9 @@ import { PageMeta } from '../components/page-meta';
 export function ActivityFeed() {
   const { activityItemId, filters, filterValues, handleActivitySelect, handleFiltersChange } = useActivityUrlState();
   const { activity, isPending, error } = usePullActivity(activityItemId);
+
+  const [downloadFormat, setDownloadFormat] = useState<'pdf' | 'excel' | null>(null);
+  const [isDownloading, setIsDownloading] = useState(false);
 
   const hasActiveFilters = Object.entries(filters).some(([key, value]) => {
     // Ignore dateRange as it's always present
@@ -59,14 +62,67 @@ export function ActivityFeed() {
     [filterValues, handleFiltersChange, handleActivitySelect]
   );
 
+  const handleDownload = async (format: 'pdf' | 'excel') => {
+    setIsDownloading(true);
+    try {
+      const res = await fetch(`/reports/export?format=${format}`, {
+        credentials: 'include',
+      });
+      if (!res.ok) throw new Error('Failed to download report');
+      const blob = await res.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `activity-report.${format === 'pdf' ? 'pdf' : 'xlsx'}`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      alert('Failed to download report');
+    } finally {
+      setIsDownloading(false);
+      setDownloadFormat(null);
+    }
+  };
+
   return (
     <>
       <PageMeta title="Activity Feed" />
       <DashboardLayout
         headerStartItems={
-          <h1 className="text-foreground-950 flex items-center gap-1">
-            <span>Activity Feed</span>
-          </h1>
+          <div className="flex items-center gap-2">
+            <h1 className="text-foreground-950 flex items-center gap-1">
+              <span>Activity Feed</span>
+            </h1>
+            <div className="relative">
+              <button
+                className="btn btn-primary"
+                disabled={isDownloading}
+                onClick={() => setDownloadFormat(downloadFormat ? null : 'pdf')}
+              >
+                Download Report
+              </button>
+              {downloadFormat && (
+                <div className="absolute z-10 mt-2 w-32 rounded border bg-white shadow">
+                  <button
+                    className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+                    onClick={() => handleDownload('pdf')}
+                    disabled={isDownloading}
+                  >
+                    PDF
+                  </button>
+                  <button
+                    className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+                    onClick={() => handleDownload('excel')}
+                    disabled={isDownloading}
+                  >
+                    Excel
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
         }
       >
         <ActivityFilters

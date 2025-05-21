@@ -7,7 +7,7 @@ const codeValueInputClassName = css({
   '& input': {
     border: 'none !important',
     background: {
-      base: '#ededed !important',
+      base: 'surface.popover !important',
       _dark: 'surface.popover !important',
     },
     color: 'typography.text.secondary !important',

@@ -46,7 +46,7 @@ export const WebhookPage: FC = () => {
     <SettingsPageContainer
       title="Inbound parse webhook"
       header={
-        <Stack gap="100" className={css({ maxW: '600px' })}>
+        <Stack gap="100" className={css({ maxW: 'full' })}>
           <div>
             <Text>
               A webhook that processes all incoming email for a domain or subdomain, parses the contents and
@@ -61,7 +61,7 @@ export const WebhookPage: FC = () => {
         </Stack>
       }
     >
-      <Stack gap="200" className={css({ maxW: '960px' })}>
+      <Stack gap="200" className={css({ maxW: 'full' })}>
         <Timeline>
           <MantineTimeline.Item
             bullet={1}
@@ -81,7 +81,7 @@ export const WebhookPage: FC = () => {
                 }}
                 render={({ field, fieldState }) => (
                   <HStack
-                    width={'100%'}
+                    width={'full'}
                     className={css({ height: 'components.input.height', marginTop: '50' })}
                     gap="molecules.form.input.button"
                   >
@@ -101,7 +101,7 @@ export const WebhookPage: FC = () => {
                     />
                     <Button
                       disabled={!field.value || field.value === inboundParseDomain}
-                      className={css({ h: '100% !important' })}
+                      className={css({ height: 'full' })}
                       loading={isUpdateDnsSettingsLoading}
                       submit
                     >

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build:watch",
     "build": "node ./check-ee.mjs",
-    "build:esm": "node_modules/.bin/tsc -p tsconfig.json",
+    "build:esm": "pnpm exec tsc -p tsconfig.json",
     "build:watch": "node_modules/.bin/tsc -w -p tsconfig.json",
     "test": "echo 'skip test in the ci'",
     "lint": "eslint src --no-error-on-unmatched-pattern",

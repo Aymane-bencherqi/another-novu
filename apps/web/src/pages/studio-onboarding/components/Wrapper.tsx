@@ -10,10 +10,10 @@ export const Wrapper = ({ children, className }: { children: ReactNode; classNam
     <div
       className={cx(
         css({
-          width: '100dvw',
-          minHeight: '100dvh',
+          width: 'full',
+          minHeight: 'full',
           colorPalette: 'mode.cloud',
-          paddingBottom: '4rem',
+          paddingBottom: '400',
           bg: 'surface.panel',
         }),
         className

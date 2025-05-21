@@ -118,9 +118,8 @@ export const TemplateDetailsPageV2 = () => {
           className={css({
             zIndex: 'docked',
             position: 'fixed',
-            // TODO: need to talk with Nik about how to position this
-            top: '[182px]',
-            right: '50',
+            top: '200',
+            right: '100',
           })}
         />
         {isPanelOpen && <CloudWorkflowSettingsSidePanel onClose={togglePanel} />}

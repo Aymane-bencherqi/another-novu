@@ -17,16 +17,16 @@ export const StepNode: WithLoadingSkeleton<FC<IStepNodeProps>> = ({ icon, title,
     <button
       className={cx(
         css({
-          w: '[240px]',
+          w: '250',
           cursor: 'pointer',
           '&:not(:last-of-type):after': {
             content: '""',
             position: 'relative',
             borderLeft: 'dashed',
-            borderColor: 'workflow.node.connector',
-            height: 'workflow.nodes.gap',
+            borderColor: '{colors.workflow.node.connector}',
+            height: '{spacing.workflow.nodes.gap}',
             display: 'block',
-            left: '[calc(50% - 1px)]',
+            left: '50%',
           },
         })
       )}
@@ -35,10 +35,10 @@ export const StepNode: WithLoadingSkeleton<FC<IStepNodeProps>> = ({ icon, title,
       <span
         className={hstack({
           ...truncatedFlexTextCss,
-          gap: '50',
+          gap: '100',
           p: '150',
           shadow: 'medium',
-          bg: 'workflow.node.surface',
+          bg: '{colors.workflow.node.surface}',
           borderRadius: '150',
           _hover: {
             opacity: 'hover',
@@ -59,26 +59,26 @@ function StepNodeSkeleton() {
     <div
       className={cx(
         css({
-          w: '[240px]',
+          w: '250',
           cursor: 'pointer',
           '&:not(:last-of-type):after': {
             content: '""',
             position: 'relative',
             borderLeft: 'dashed',
-            borderColor: 'workflow.node.connector',
-            height: 'workflow.nodes.gap',
+            borderColor: '{colors.workflow.node.connector}',
+            height: '{spacing.workflow.nodes.gap}',
             display: 'block',
-            left: '[calc(50% - 1px)]',
+            left: '50%',
           },
         })
       )}
     >
       <span
         className={hstack({
-          gap: '50',
+          gap: '100',
           p: '150',
           shadow: 'medium',
-          bg: 'workflow.node.surface',
+          bg: '{colors.workflow.node.surface}',
           borderRadius: '150',
           _hover: {
             opacity: 'hover',

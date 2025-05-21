@@ -53,12 +53,12 @@ const columns: IExtendedColumn<INotificationTemplateExtended>[] = [
     width: 340,
     maxWidth: 340,
     Cell: withCellLoading(({ row: { original } }) => (
-      <Group spacing={8}>
-        <Group spacing={4}>
+      <Group spacing={100}>
+        <Group spacing={50}>
           <When truthy={original.bridge}>
             <Tooltip label="Workflow is handled by Novu Framework" position="top">
               <div>
-                <Bolt color="#4c6dd4" width="24px" height="24px" />
+                <Bolt color="#4c6dd4" width="24" height="24" />
               </div>
             </Tooltip>
           </When>
@@ -79,10 +79,10 @@ const columns: IExtendedColumn<INotificationTemplateExtended>[] = [
               {original.workflowIntegrationStatus?.hasActiveIntegrations &&
               original.workflowIntegrationStatus?.hasPrimaryIntegrations !== false ? (
                 !original.bridge ? (
-                  <Bolt color={colors.B40} width="24px" height="24px" />
+                  <Bolt color={colors.B40} width="24" height="24" />
                 ) : null
               ) : (
-                <ProviderMissing width="24px" height="24px" />
+                <ProviderMissing width="24" height="24" />
               )}
             </div>
           </Tooltip>
